@@ -1,4 +1,7 @@
-.current_event {
+.current_event,
+.last_event {
+  margin-bottom: 10rem;
+
   .intro_box {
     position: relative;
     margin-bottom: 1.5rem;
@@ -25,7 +28,7 @@
 
     @for $i from 1 through 9 {
       .event_box .event0#{$i} {
-        background-image: url('../../../../../public/current_event_0#{$i}.jpg');
+        background-image: url('../../../../../../public/current_event_0#{$i}.jpg');
       }
     }
 
@@ -41,9 +44,9 @@
       padding: 3rem;
 
       >figure {
-        outline: 1px solid #000;
+        flex-grow: 1;
         width: 35rem;
-        height: 20rem;
+        height: 27rem;
       }
 
       .event_desc {
@@ -63,7 +66,7 @@
           // * {
           //   outline: 1px solid #000;
           // }
-
+          margin-bottom: 5rem;
           width: 70rem;
 
           thead {
@@ -95,6 +98,13 @@
             }
           }
         }
+
+        .btn {
+          padding: 1rem 2rem;
+          font-size: 1.5rem;
+          color: #f9f9f9;
+          background-color: #ED3124;
+        }
       }
     }
   }
@@ -107,6 +117,5 @@
     font-weight: 500;
     width: 100%;
     cursor: pointer;
-
   }
 }
