@@ -17,7 +17,6 @@ const DateBox = ({ boolSet, setBool }) => {
   const [cnt, setCnt] = useState();
   const dateInfo = new Date();
   const slideRef = useRef();
-  const [today, setToday] = useState(dateInfo.getDate());
   const [cdate, setCdate] = useState(dateInfo.getMonth());
   const daysList = ['일', '월', '화', '수', '목', '금', '토'];
   const dateList = Array(12 - dateInfo.getMonth()).fill().map((it, idx) => ({
@@ -29,7 +28,7 @@ const DateBox = ({ boolSet, setBool }) => {
     dots: false,
     slidesToShow: 1,
     infinite: false,
-    afterChange: () => (setCnt(undefined), setBool([false, false, false], setToday(undefined)))
+    afterChange: () => (setCnt(undefined), setBool([false, false, false]))
   }
   return (
     <div className="date_box common">
@@ -43,7 +42,7 @@ const DateBox = ({ boolSet, setBool }) => {
                 <div className="days_box">
                   {it.days.map((its, id) => {
                     return (
-                      <div key={its} className={id === cnt || id + 1 === today ? `slot on` : `slot`} onClick={() => (setCnt(id), setBool([true, false, false]))}>
+                      <div key={its} className={id === cnt ? `slot on` : `slot`} onClick={() => (setCnt(id), setBool([true, false, false]))}>
                         <strong className="days">{daysList[new Date(dateInfo.getFullYear(), it.month - 1, its).getDay()]}</strong>
                         <span>{its}</span>
                       </div>
